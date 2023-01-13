@@ -1,4 +1,3 @@
-import background_locator_2
 import Flutter
 import path_provider_ios
 import UIKit
@@ -15,7 +14,6 @@ func registerPlugins(registry: FlutterPluginRegistry) {
             .LaunchOptionsKey: Any]?
     ) -> Bool {
         GeneratedPluginRegistrant.register(with: self)
-        BackgroundLocatorPlugin.setPluginRegistrantCallback(registerPlugins)
 
         registerOtherPlugins()
 
