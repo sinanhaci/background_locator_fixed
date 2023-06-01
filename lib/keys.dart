@@ -14,6 +14,8 @@ class Keys {
       'LocatorPlugin.isRegisterLocationUpdate';
   static const String METHOD_PLUGIN_IS_SERVICE_RUNNING =
       'LocatorPlugin.isServiceRunning';
+  static const String METHOD_GET_CURRENT_POSITION =
+      'LocatorPlugin.getCurrentPosition';
   static const String METHOD_PLUGIN_UPDATE_NOTIFICATION =
       'LocatorPlugin.updateNotification';
 

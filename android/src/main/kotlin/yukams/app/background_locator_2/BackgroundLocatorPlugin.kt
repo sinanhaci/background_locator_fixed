@@ -258,6 +258,28 @@ class BackgroundLocatorPlugin
 
                 result.success(true)
             }
+            Keys.METHOD_PLUGIN_GET_CURRENT_POSITION -> {
+                val keyLatitude = "latitude"
+                val keyLongitude = "longitude"
+                if (context != null) {
+                    val fusedLocationClient: FusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(context!!)
+                    fusedLocationClient.lastLocation
+                        .addOnSuccessListener { location ->
+                            if (location != null) {
+                                val latitude = location.latitude
+                                val longitude = location.longitude
+                                result.success(hashMapOf(keyLatitude to latitude, keyLongitude to longitude))
+                            } else {
+                                result.success(hashMapOf(keyLatitude to null, keyLongitude to null))
+                            }
+                        }
+                        .addOnFailureListener { exception ->
+                            result.success(hashMapOf(keyLatitude to null, keyLongitude to null))
+                        }
+                } else {
+                    result.success(hashMapOf(keyLatitude to null, keyLongitude to null))
+                }
+            }
             else -> result.notImplemented()
         }
     }

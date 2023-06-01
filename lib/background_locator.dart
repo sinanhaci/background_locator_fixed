@@ -10,6 +10,7 @@ import 'package:flutter/widgets.dart';
 
 import 'auto_stop_handler.dart';
 import 'callback_dispatcher.dart';
+import 'current_position_dto.dart';
 import 'keys.dart';
 import 'location_dto.dart';
 
@@ -71,6 +72,18 @@ class BackgroundLocator {
     if (Platform.isAndroid) {
       return (await _channel
           .invokeMethod<bool>(Keys.METHOD_PLUGIN_IS_SERVICE_RUNNING))!;
+    }
+  }
+
+  static Future<CurrentPosition?> getCurrentPosition() async {
+    if (Platform.isAndroid) {
+      try {
+        var result = (await _channel
+            .invokeMethod<dynamic>(Keys.METHOD_GET_CURRENT_POSITION))!;
+        return CurrentPosition.fromJson(result);
+      } catch (e) {
+        return null;
+      }
     }
   }
 
