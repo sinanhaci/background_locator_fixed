@@ -25,5 +25,3 @@ flutter:
       android:
         package: yukams.app.background_locator_2
         pluginClass: BackgroundLocatorPlugin
-      ios:
-        pluginClass: BackgroundLocatorPlugin

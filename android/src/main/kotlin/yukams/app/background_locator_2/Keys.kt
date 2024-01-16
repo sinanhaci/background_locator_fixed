@@ -3,6 +3,8 @@ package yukams.app.background_locator_2
 class Keys {
     companion object {
         @JvmStatic
+        val METHOD_PLUGIN_GET_CURRENT_POSITION = "LocatorPlugin.getCurrentPosition"
+        @JvmStatic
         val SHARED_PREFERENCES_KEY = "SHARED_PREFERENCES_KEY"
 
         @JvmStatic
